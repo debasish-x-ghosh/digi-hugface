@@ -1,0 +1,5 @@
+langchain==0.0.271
+huggingface-hub==0.16.4
+Pillow==9.5.0 
+streamlit==1.12.0
+altair==4.0
