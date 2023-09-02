@@ -1,9 +1,11 @@
 import streamlit as st
 from langchain.llms import HuggingFaceHub
 from dotenv import load_dotenv
-load_dotenv()
 import os
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
+
+
+load_dotenv()
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv("HF_API_TOKEN")
 
 
 #Function to return the response
@@ -23,8 +25,9 @@ def get_text():
     return input_text
 
 
-user_input=get_text()
-response = str(load_answer(user_input))
+user_input = get_text()
+if(user_input != ""):
+    response = load_answer(user_input)
 
 submit = st.button('Generate')  
 
