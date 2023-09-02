@@ -8,13 +8,13 @@ os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv("HUGGINGFACEHUB_API_TOKEN")
 
 #Function to return the response
 def load_answer(question): 
-    llm=HuggingFaceHub(repo_id="google/flan-t5-xl", model_kwargs={"temperature":1e-10})
+    llm=HuggingFaceHub(repo_id="google/flan-t5-large")
     answer=llm(question)
     return answer
 
 
 #App UI starts here
-st.set_page_config(page_title="LangChain Demo", page_icon=":robot:")
+st.set_page_config(page_title="LangChain Demo")
 st.header("LangChain Demo")
 
 #Gets the user input
@@ -24,7 +24,7 @@ def get_text():
 
 
 user_input=get_text()
-response = load_answer(str(user_input))
+response = str(load_answer(user_input))
 
 submit = st.button('Generate')  
 
