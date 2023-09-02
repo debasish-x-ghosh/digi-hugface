@@ -3,9 +3,9 @@ from langchain.llms import HuggingFaceHub
 from dotenv import load_dotenv
 import os
 
-
-load_dotenv()
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.getenv("HF_API_TOKEN")
+print("-----------Ho ho------------")
+print(os.environ.get('HUGGINGFACEHUB_API_TOKEN'))
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.environ.get('HUGGINGFACEHUB_API_TOKEN')
 
 
 #Function to return the response
